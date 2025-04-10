@@ -13,7 +13,7 @@ jobs:
       - name: "Setup build environment"
         run: curl https://raw.githubusercontent.com/akhilnarang/scripts/master/setup/android_build_env.sh | bash -
       - name: "Clone repo, sync, and build"
-        run: repo init -u https://github.com/pa-gr/kernel_manifest -b android12-5.10-marble --depth=1 && repo sync && ./build.sh -t -c && mv aospa-gki-marble-*.zip aospa-gki-kernel.zip
+        run: repo init -u https://github.com/OnePlusOSS/kernel_manifest.git -b refs/heads/oneplus/sm8550 -m oneplus_12r_v.xml --depth=1 && repo sync && ./build.sh -t -c && mv aospa-gki-marble-*.zip aospa-gki-kernel.zip
       - name: Generate release tag
         id: tag
         run: echo "::set-output name=release_tag::AOSPA_STOCK_GKI_$(date +"%Y.%m.%d")"
